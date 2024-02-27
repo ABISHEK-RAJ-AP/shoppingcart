@@ -1,7 +1,7 @@
 # ShopCartJS
 
-![ShopCartJS Logo](preview1.png)
-[sample](preview2.png)
+![ShopCartJS Logo](preview2.png)
+[sample](preview1.png)
 [sample](preview3.png)
 
 ## Overview
