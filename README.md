@@ -1,6 +1,8 @@
 # ShopCartJS
 
-![ShopCartJS Logo](preview1,preview2,preview3)
+![ShopCartJS Logo](preview1)
+!view[sample](preview2)
+!view[sample](preview3)
 
 ## Overview
  your go-to JavaScript shopping cart solution for a seamless e-commerce experience. Our platform empowers developers to integrate a fully functional shopping cart into their websites with ease.
