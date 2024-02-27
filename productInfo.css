@@ -1,0 +1,56 @@
+* {
+    font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
+}
+
+.productQuantity {
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+ 
+}
+
+.proImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantityButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#quantityButton {
+    background: white;
+    border: 1px solid grey;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 8px;
+}
+
+#quantityButton:hover {
+    background-color: black;
+    color: white;
+}
+
+#contentButton {
+    background: white;
+    border: 1px solid grey;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 8px;
+}
+#cartButton{
+    background: white;
+    padding: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid;
+    border-radius: 6px;
+}
+#cartButton:hover{
+    background: black;
+    color: white;
+}

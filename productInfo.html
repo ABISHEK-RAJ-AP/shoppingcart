@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>productInfo</title>
+    <link rel="stylesheet" href="productInfo.css">
+</head>
+
+<body>
+
+    <div class="productQuantity">
+        <h3 style="text-align: center;">SELECT QUANTITY</h3>
+        <div class="proImage"> <img src="" id="imgOut" style="width: 30%; border-radius: 5px;"></div>
+        <br>
+        <div class="quantityButtons">
+            <button id="quantityButton" onclick="minus()">-</button>
+            <button id="contentButton"></button>
+            <button id="quantityButton" onclick="plus()">+</button>
+        </div>
+        <p style="text-align: center; display: inline;">MAX QUANTITY ALLOWED : </p><p id="maxQuant" style="text-align: center; display: inline;"></p><br><br>
+        <p style="text-align: center; display: inline;">MIN QUANTITY ALLOWED : </p><p id="minQuant" style="text-align: center; display: inline;">0</p><br><br>
+        
+        <button onclick="goCart()" id="cartButton">Go to cart</button>
+
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    var img = document.getElementById("imgOut")
+    img.src = localStorage.getItem('productImgSrc');
+
+    document.getElementById("maxQuant").innerText = localStorage.getItem("productMaxQuantity")
+    "use strict";
+    var count = 0;
+    document.getElementById("contentButton").innerText = count;
+    function plus() {
+        if (count >= localStorage.getItem("productMaxQuantity")) {
+            document.getElementById("contentButton").innerText = localStorage.getItem("productMaxQuantity");
+            localStorage.setItem("userChosenQuantity",count)
+        }
+        else {
+            count += 1;
+            document.getElementById("contentButton").innerText = count;
+            localStorage.setItem("userChosenQuantity",count)
+        
+        }
+    }
+    function minus() {
+        if (count <= 0) {
+            document.getElementById("contentButton").innerText = "0";
+            localStorage.setItem("userChosenQuantity",count)
+        }
+        else {
+            count -= 1;
+            document.getElementById("contentButton").innerText = count;
+            localStorage.setItem("userChosenQuantity",count)
+           
+        }
+    // localStorage.setItem("userChosenQuantity",count)
+    }
+    console.log(count)
+   
+function goCart(){
+    window.location.href = "cart.html";
+}
+
+</script>

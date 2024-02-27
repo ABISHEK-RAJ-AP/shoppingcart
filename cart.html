@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div style="display: flex; align-items: center; justify-content: center;" class="mt-5 mb-5 ">
+        <div class="card mt-5 mb-5 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;">
+            <img id="imgOut2" src="" class="card-img-top"  >
+            <div class="card-body">
+                <h5 class="card-title" id="nameContainer"></h5>
+                <p class="card-text" id="descriptionContainer"></p>
+                <p class="card-text" id="perProductPrice"></p>
+                <p class="card-text" id="productQuantity"></p>
+                <p class="card-text" id="totalPrice"></p>
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous">
+     
+    </script>
+</body>
+
+</html>
+<script>
+       var img2 = document.getElementById("imgOut2")
+        img2.src = localStorage.getItem('productImgSrc');
+        var name=localStorage.getItem("productName");
+       var description=localStorage.getItem("productDescription");
+       var flat=localStorage.getItem("productFlat");
+       var discount=localStorage.getItem("productDiscount");
+       var price=localStorage.getItem("productSellPrice")
+       var quantity=localStorage.getItem("userChosenQuantity");
+       document.getElementById("nameContainer").innerText=name.substr(0,20)+".....";
+       document.getElementById("descriptionContainer").innerText="Description : "+description;
+
+       if(flat==""){
+        document.getElementById("perProductPrice").innerText="Per Product Price : "+price;
+        document.getElementById("productQuantity").innerText="Total Quantity : "+quantity;
+        var total=price*quantity;
+        document.getElementById("totalPrice").innerText="Total price : "+total
+       }
+       else(discount=="")
+       {
+        document.getElementById("perProductPrice").innerText="Per Product Price : "+price;
+        document.getElementById("productQuantity").innerText="Total Quantity : "+quantity;
+        var total=price*quantity;
+        document.getElementById("totalPrice").innerText="Total price : "+total
+       }
+
+</script>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="addprouctsection">
+        <h1 class="title">
+            Add Product
+        </h1>
+        <input id="name" type="text" placeholder="Enter the product name"><br>
+        <p style="display: none; color: red;" id="nameWarning">Enter the product name </p>
+        <textarea id="description" placeholder="Enter the product description"></textarea><br>
+        <p style="display: none; color: red;" id="descriptionWarning">Enter the product description </p>
+        <p style="display: none; color: red;" id="descriptionCharWarning">description must be in 255 characters</p>
+        <p id="imageText">Upload product image</p>
+        <input type="file" id="image" placeholder="Upload product image" onchange="loadFile(event)"><br>
+        <img src="" alt="" id="productimg" style="width: 20%;"><br>
+        <p style="display: none; color: red;" id="imageWarning">Image is not uploaded</p>
+        <input type="text" id="price" placeholder="Enter the original product price"><br>
+        <p style="display: none; color: red;" id="originalPriceWarning">Enter the original price</p>
+        <select id="flatdiscount" onchange="flatDiscountfunc()">
+            <option value="">-------Select flat or discount-------</option>
+            <option value="flat">Flat</option>
+            <option value="discount">Discount</option>
+        </select>
+        <p style="display: none; color: red;" id="OfferWarning">Select the flat or discount</p>
+        <input type="text" placeholder="Enter the flat -/" id="flat" style="display: none;"><br>
+        <input type="text" placeholder="Enter the discount %" id="discount" style="display: none;"><br>
+        <input type="text" placeholder="Sale price" id="Sale" disabled value=""><br>
+        <input type="text" placeholder="Maximum quantity" id="quantity"><br>
+        <p style="display: none; color: red;" id="MaxQuantity">Enter the maximum quantity</p>
+        <button id="addbutton" onclick="addProduct(),priceCalculation(event)">Add product</button>
+    </div>
+</body>
+
+</html>
+<script>
+    function addProduct() {
+        var productName = document.getElementById("name").value;
+        if (productName == "") {
+            document.getElementById("name").style = "border: 1px solid red;"
+            document.getElementById("nameWarning").style = "display:block; color:red; font-size:13px; margin-top:-10px;"
+        }
+        else {
+            document.getElementById("name").style = "border: 1px solid black;";
+            document.getElementById("nameWarning").style = "display:none;";
+        }
+        var productDescription = document.getElementById("description").value;
+        if (productDescription == "") {
+            document.getElementById("description").style = "border: 1px solid red;"
+            document.getElementById("descriptionWarning").style = "display:block; color:red; font-size:13px; margin-top:-10px;"
+            document.getElementById("descriptionCharWarning").style = "display:none; color:red; font-size:13px; margin-top:-10px;"
+        }
+        else if (productDescription.length > 255) {
+            document.getElementById("description").style = "border: 1px solid red;"
+
+            document.getElementById("descriptionCharWarning").style = "display:block; color:red; font-size:13px; margin-top:-10px;"
+        }
+        else {
+            document.getElementById("description").style = "border: 1px solid black;";
+            document.getElementById("descriptionCharWarning").style = "display:none; color:red; font-size:13px; margin-top:-10px;"
+            document.getElementById("descriptionWarning").style = "display:none;";
+        }
+        var productImage = document.getElementById("image").value;
+        if (productImage == "") {
+            document.getElementById("imageWarning").style = "display:block; color:red; font-size:13px; margin-top:-10px;"
+        }
+        else {
+            document.getElementById("imageWarning").style = "display:none;";
+        }
+        var productOffer = document.getElementById("flatdiscount").value;
+        if (productOffer == "") {
+            document.getElementById("OfferWarning").style = "display:block; color:red; font-size:13px; margin-top:-10px;";
+        }
+        else if (productOffer == "flat") {
+            document.getElementById("OfferWarning").style = "display:none;";
+
+        }
+        else if (productOffer == "discount") {
+            document.getElementById("OfferWarning").style = "display:none;";
+        }
+        var originalProductPrice = document.getElementById("price").value;
+        if (originalProductPrice == "") {
+            document.getElementById("originalPriceWarning").style = "display:block; color:red; font-size:13px; margin-top:-10px;";
+        }
+        else {
+            document.getElementById("originalPriceWarning").style = "display:none;";
+        }
+        var productQuantity = document.getElementById("quantity").value;
+        if (productQuantity == "") {
+            document.getElementById("MaxQuantity").style = "display:block; color:red; font-size:13px; margin-top:-10px;";
+        }
+        else {
+            document.getElementById("MaxQuantity").style = "display:none;";
+        }
+    }
+    function flatDiscountfunc() {
+        var productOffer = document.getElementById("flatdiscount").value;
+        if (productOffer == "") {
+            document.getElementById("flat").style = "display:none;";
+            document.getElementById("discount").style = "display:none;";
+
+        }
+        else if (productOffer == "flat") {
+
+            document.getElementById("flat").style = "display:block;";
+            document.getElementById("discount").style = "display:none;";
+
+        }
+        else if (productOffer == "discount") {
+            document.getElementById("flat").style = "display:none";
+            document.getElementById("discount").style = "display:block;";
+
+        }
+
+
+    }
+    function priceCalculation() {
+        var originalPrice = document.getElementById("price").value;
+        var productOffer = document.getElementById("flatdiscount").value;
+        localStorage.setItem("originalProductPrice", originalPrice)
+        localStorage.setItem("productName", document.getElementById("name").value)
+        localStorage.setItem("productDescription", document.getElementById("description").value)
+        localStorage.setItem("productOriginalPrice", document.getElementById("price").value)
+        localStorage.setItem("productFlat", document.getElementById("flat").value)
+        localStorage.setItem("productDiscount", document.getElementById("discount").value)
+        localStorage.setItem("productSellPrice", document.getElementById("Sale").value)
+        localStorage.setItem("productMaxQuantity", document.getElementById("quantity").value)
+
+        if (document.getElementById("name").value && document.getElementById("description").value && document.getElementById("price").value && document.getElementById("Sale").value && document.getElementById("quantity").value && document.getElementById("image").value) {
+            window.location.href = "productInfo.html";
+        }
+        var flatPercent;
+        var discountPercent;
+        var flatCalculation;
+        var discountCalculation;
+        var disPrice;
+        if (productOffer == "flat") {
+            flatPercent = document.getElementById("flat").value;
+            flatCalculation = originalPrice - flatPercent;
+            document.getElementById("Sale").value = flatCalculation;
+        }
+        else if (productOffer == "discount") {
+            discountPercent = document.getElementById("discount").value;
+            disPrice = (originalPrice * discountPercent) / 100;
+            discountCalculation = originalPrice - disPrice;
+            document.getElementById("Sale").value = discountCalculation;
+        }
+    }
+    function loadFile(event) {
+        console.log('event --- ', event.target.files[0]);
+        var reader = new FileReader();
+        console.log(reader.result);
+        reader.onload = function () {
+            var output = document.getElementById('productimg');
+            output.src = reader.result;
+
+            localStorage.setItem('productImgSrc', reader.result);
+
+        };
+        reader.readAsDataURL(event.target.files[0]);
+
+    }
+
+</script>

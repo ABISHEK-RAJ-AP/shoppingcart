@@ -1,0 +1,100 @@
+*{
+    font-family: "Google Sans","Noto Sans Myanmar UI",arial,sans-serif;
+}
+.addprouctsection{
+    display: flex;
+    flex-direction: column;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    border: 1px solid black;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    border-radius: 10px;
+    box-shadow: rgba(25, 25, 25, 0.04) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 5px 5px 0;
+    background-color: white;
+    
+}
+.title{
+    text-align: center;
+    color: rgb(32,33,36);
+    font-size: 24px;
+    font-family: "Google Sans","Noto Sans Myanmar UI",arial,sans-serif;
+}
+#name{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+#description{
+    padding-top: 15px;
+    padding-bottom: 19px;
+    padding-left: 10px;
+}
+#imageText{
+    margin-top: -3px;
+    font-size: 15px;
+}
+#price{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+#flatdiscount{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+#flat{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-bottom: 17px;
+}
+#discount{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: -13px;
+    padding-left: 10px;
+    margin-bottom: 34px;
+}
+
+#Sale{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: -33px;
+
+}
+#quantity{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+#addbutton{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+@media Screen and (min-width:320px) and (max-width:480px){
+    .addprouctsection{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media Screen and (min-width:481px) and (max-width:768px){
+    .addprouctsection{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media Screen and (min-width:769px) and (max-width:1024px) {
+    
+    .addprouctsection{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
